@@ -1,0 +1,11 @@
+streamlit 
+pandas 
+python-dotenv 
+schedule
+sendgrid
+langchain-groq
+langchain_community
+astrapy
+streamlit-calendar
+streamlit-option-menu
+streamlit-lottie
