@@ -6,7 +6,7 @@
 ## 🔗 Demo Link
 
 - 🎥 [Watch the Demo Video](https://youtu.be/your-demo-video-id)
-- 🌐 [Try the Live App](https://campus-copilot.streamlit.app)
+- 🌐 [Try the Live App](https://campuscopilot.streamlit.app/)
 
 ## 🚀 Features
 
