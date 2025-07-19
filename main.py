@@ -71,7 +71,7 @@ def main():
     if "user_email" not in st.session_state:
         st.session_state.user_email = None
 
-    # ✅ Top Nav Menu
+    # Top Nav Menu
     selected = option_menu(
         menu_title=None,
         options=["Home", "Events", "Schedule", "Calendar", "Assistant", "Logout"],
@@ -88,7 +88,7 @@ def main():
 
     st.markdown("<h1 style='text-align: center;'>🎓 Campus Copilot</h1>", unsafe_allow_html=True)
 
-    # ✅ Login Section
+    # Login Section
     if not st.session_state.user_email:
         st.markdown("### 🔐 Please login to continue")
         email_input = st.text_input("Enter your email")
@@ -97,7 +97,7 @@ def main():
             st.rerun()
         st.stop()
 
-    # 🔄 Load user data
+    # Load user data
     event_manager = EventManager()
     scheduler = Scheduler()
     assistant = Assistant()
@@ -108,7 +108,7 @@ def main():
         st.error(f"❌ Error loading events: {e}")
         return
 
-    # 🏠 Home
+    # Home
     if selected == "Home":
         col1, col2 = st.columns(2)
 
@@ -120,7 +120,7 @@ def main():
             st.write("Your personal college assistant to manage classes, events, and reminders with ease.")
             st.success("💡 Pro Tip: Use the Assistant tab to ask anything about your schedule!")
 
-    # 📆 Calendar View
+    # Calendar View
     elif selected == "Calendar":
         from streamlit_calendar import calendar
         st.subheader("📆 Your Event Calendar")
@@ -140,7 +140,7 @@ def main():
         }
         calendar(events=events_data, options=calendar_options)
 
-    # 📋 Events
+    # Events
     elif selected == "Events":
         st.subheader("🔍 Search Events")
         search_query = st.text_input("Search by title or description")
@@ -193,7 +193,7 @@ def main():
         else:
             st.info("No events to delete.")
 
-    # 🕒 Schedule
+    #  Schedule
     elif selected == "Schedule":
         st.subheader("📌 Next 3 Days")
         agenda = scheduler.get_upcoming_agenda(event_manager.get_events(), days=3)
@@ -213,7 +213,7 @@ def main():
             else:
                 st.error("❌ Failed to send.")
 
-    # 🤖 Assistant
+    #  Assistant
     elif selected == "Assistant":
         st.subheader("🤖 Ask Campus Copilot")
         query = st.text_input("Ask something...")
@@ -222,7 +222,7 @@ def main():
             st.markdown("### 🧠 Response")
             st.write(response)
 
-    # 🚪 Logout
+    #  Logout
     elif selected == "Logout":
         st.session_state.clear()
         st.success("✅ Logged out.")
